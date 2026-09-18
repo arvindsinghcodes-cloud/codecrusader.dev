@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0A0B0D;
+  --card: #14161A;
+  --card-hover: #1B1E23;
+  --border: #23262B;
+  --cyan: #3DDAD7;
+  --cyan-glow: rgba(61, 218, 215, 0.25);
+  --red: #FF1A1A;
+  --red-glow: rgba(255, 26, 26, 0.25);
+  --text: #E9EAEC;
+  --muted: #8B9099;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+.font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Cyber Grid Background */
+.cyber-grid {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(61, 218, 215, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(61, 218, 215, 0.04) 1px, transparent 1px);
+}
+
+/* Custom Glows & Shadows */
+.glow-cyan { box-shadow: 0 0 25px rgba(61, 218, 215, 0.35); }
+.glow-red { box-shadow: 0 0 25px rgba(255, 26, 26, 0.4); }
+.text-glow-cyan { text-shadow: 0 0 12px rgba(61, 218, 215, 0.6); }
+.text-glow-red { text-shadow: 0 0 12px rgba(255, 26, 26, 0.6); }
+.border-glow-cyan:focus, .border-glow-cyan:hover {
+  border-color: var(--cyan);
+  box-shadow: 0 0 16px rgba(61, 218, 215, 0.3);
+}
+
+/* Scanline Effect */
+.scanlines {
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #0A0B0D; }
+::-webkit-scrollbar-thumb { background: #23262B; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #3DDAD7; }
+
+/* Custom Animations */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.05); }
+}
+.pulse-glow { animation: pulseGlow 4s ease-in-out infinite; }
+
+@keyframes equalizer {
+  0%, 100% { height: 4px; }
+  50% { height: 16px; }
+}
+.eq-bar-1 { animation: equalizer 0.8s ease-in-out infinite; }
+.eq-bar-2 { animation: equalizer 1.1s ease-in-out infinite 0.2s; }
+.eq-bar-3 { animation: equalizer 0.7s ease-in-out infinite 0.4s; }

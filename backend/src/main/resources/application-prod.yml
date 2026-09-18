@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      # `update` keeps this project runnable without a migration tool. For a
+      # real production rollout, switch to `validate` and manage schema
+      # changes with Flyway or Liquibase instead.
+      ddl-auto: update
+    show-sql: false
+    open-in-view: false
+
+app:
+  seed:
+    enabled: ${SEED_DEMO_DATA:false}
+
+logging:
+  level:
+    dev.codecrusader.backend: INFO
